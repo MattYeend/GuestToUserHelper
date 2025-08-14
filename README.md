@@ -10,7 +10,7 @@
 
 ## Install
 ```bash
-composer require MattYeend/laravel-guest-upgrade
+composer require MattYeend/guest-to-user-helper
 php artisan vendor:publish --tag=config
 php artisan vendor:publish --tag=migrations
 ```
