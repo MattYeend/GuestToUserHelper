@@ -23,7 +23,7 @@ Laravel 10 and 11
 // app/Http/Kernel.php
 protected $middlewareGroups = [
     'web' => [
-        \MattYeend\GuestUpgrade\Http\Middleware\AssignGuestIdentifier::class,
+        \MattYeend\GuestToUserHelper\Http\Middleware\AssignGuestIdentifier::class,
     ],
 ];
 ```
@@ -31,7 +31,7 @@ protected $middlewareGroups = [
 Laravel 12
 ```php
 // bootstrap/app.php
-use MattYeend\GuestUpgrade\Http\Middleware\AssignGuestIdentifier;
+use MattYeend\GuestToUserHelper\Http\Middleware\AssignGuestIdentifier;
 use Illuminate\Foundation\Configuration\Middleware;
 
 return Application::configure(basePath: dirname(__DIR__))
@@ -48,7 +48,7 @@ return Application::configure(basePath: dirname(__DIR__))
 ## Usage
 Add `HasGuestOwnership` to any model you want to track for guests:
 ```php
-use MattYeend\GuestUpgrade\Traits\HasGuestOwnership;
+use MattYeend\GuestToUserHelper\Traits\HasGuestOwnership;
 
 class Cart extends Model
 {
@@ -57,7 +57,7 @@ class Cart extends Model
 ```
 Migrate data after login/registration:
 ```php
-app(\MattYeend\GuestUpgrade\GuestMigrator::class)->migrate(auth()->id());
+app(\MattYeend\GuestToUserHelper\GuestMigrator::class)->migrate(auth()->id());
 ```
 Events available:
 - `GuestMigrating`
